@@ -19,7 +19,7 @@ public class CsvQuestionDao implements QuestionDao {
     public List<Question> findAll() {
         try (var in = getClass().getClassLoader().getResourceAsStream(fileNameProvider.getTestFileName())) {
             if (in == null) {
-                throw new IllegalArgumentException("Resource not found: " + fileNameProvider.getTestFileName());
+                throw new QuestionReadException("Resource not found: " + fileNameProvider.getTestFileName());
             }
             var csvToBean = new CsvToBeanBuilder<QuestionDto>(new InputStreamReader(in))
                     .withType(QuestionDto.class)
