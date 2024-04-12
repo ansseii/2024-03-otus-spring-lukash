@@ -1,0 +1,12 @@
+
+Please answer the questions below
+
+What is 2 + 2?
+-- 22
+-- 4
+Incorrect input. Only numbers from 1 to 2 are allowed
+What is the capital of France?
+-- London
+-- Madrid
+-- Paris
+Incorrect input. Only numbers from 1 to 3 are allowed
