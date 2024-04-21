@@ -1,6 +1,5 @@
 package ru.otus.hw.service;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -28,13 +27,9 @@ class ResultServiceImplTest {
     @InjectMocks
     private ResultServiceImpl resultService;
 
-    @BeforeEach
-    void setUp() {
-        when(testResult.getStudent()).thenReturn(new Student("John", "Doe"));
-    }
-
     @Test
     void showResult_ShouldPrintSuccessMessage_WhenPassTest() {
+        when(testResult.getStudent()).thenReturn(new Student("John", "Doe"));
         when(testResult.getRightAnswersCount()).thenReturn(5);
         when(testConfiguration.getRightAnswersCountToPass()).thenReturn(4);
 
@@ -45,6 +40,7 @@ class ResultServiceImplTest {
 
     @Test
     void showResult_ShouldPrintFailMessage_WhenFailTest() {
+        when(testResult.getStudent()).thenReturn(new Student("John", "Doe"));
         when(testResult.getRightAnswersCount()).thenReturn(3);
         when(testConfiguration.getRightAnswersCountToPass()).thenReturn(4);
 

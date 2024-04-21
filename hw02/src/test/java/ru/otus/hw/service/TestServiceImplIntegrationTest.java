@@ -1,6 +1,5 @@
 package ru.otus.hw.service;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +32,6 @@ class TestServiceImplIntegrationTest {
 
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
-    @BeforeEach
-    void setUp() {
-        setupServiceWithUserInput("2\n3\n");
-    }
-
     @Test
     void executeTestFor_ShouldReturnCorrectResults_WhenAskForQuestions() {
         setupServiceWithUserInput("1\n3\n");
@@ -51,6 +45,7 @@ class TestServiceImplIntegrationTest {
 
     @Test
     void executeTestFor_ShouldPrintCorrectOutput_WhenAskForQuestionsWithCorrectAnswers() throws IOException {
+        setupServiceWithUserInput("2\n3\n");
         var resource = resourceLoader.getResource("classpath:expected-output-with-correct-answers.txt");
         var expected = new String(Files.readAllBytes(resource.getFile().toPath()));
         testService.executeTestFor(new Student("John", "Doe"));
