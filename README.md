@@ -2,3 +2,4 @@
 #### Навигация:
 - [Введение в Spring Framework](https://github.com/ansseii/2024-03-otus-spring-lukash/tree/main/hw01)
 - [Конфигурирование Spring-приложений](https://github.com/ansseii/2024-03-otus-spring-lukash/tree/main/hw02)
+- ["Черная магия" Spring Boot](https://github.com/ansseii/2024-03-otus-spring-lukash/tree/main/hw03)
