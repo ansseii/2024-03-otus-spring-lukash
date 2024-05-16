@@ -176,17 +176,14 @@ public class JdbcBookRepository implements BookRepository {
         @Override
         public Book extractData(ResultSet rs) throws SQLException, DataAccessException {
             Book book = null;
-            var genres = new ArrayList<Genre>();
             while (rs.next()) {
-                book = new BookRowMapper().mapRow(rs, 0);
-                genres.add(new Genre(
+                if (book == null) {
+                    book = new BookRowMapper().mapRow(rs, 0);
+                }
+                book.getGenres().add(new Genre(
                         rs.getLong("genre_id"),
                         rs.getString("genre_name")
                 ));
-            }
-
-            if (book != null) {
-                book.getGenres().addAll(genres);
             }
 
             return book;
