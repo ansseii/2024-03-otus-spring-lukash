@@ -53,7 +53,7 @@ class JpaGenreRepositoryTest {
         var genreTwo = entityManager.find(Genre.class, EXISTING_GENRE_2);
         var genreThree = entityManager.find(Genre.class, EXISTING_GENRE_3);
 
-        var actual = genreRepository.findAllByIds(Set.of(
+        var actual = genreRepository.findAllByIdIn(Set.of(
                 EXISTING_GENRE_1, EXISTING_GENRE_2, EXISTING_GENRE_3,
                 NONEXISTENT_GENRE_1, NONEXISTENT_GENRE_2, NONEXISTENT_GENRE_3
         ));
