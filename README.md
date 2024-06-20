@@ -7,3 +7,4 @@
 - [DAO на Spring JDBC](https://github.com/ansseii/2024-03-otus-spring-lukash/tree/main/hw05)
 - [DAO на Spring ORM + JPA](https://github.com/ansseii/2024-03-otus-spring-lukash/tree/main/hw06)
 - [Spring Data JPA](https://github.com/ansseii/2024-03-otus-spring-lukash/tree/main/hw07)
+- [Spring Data MongoDB](https://github.com/ansseii/2024-03-otus-spring-lukash/tree/main/hw08)
