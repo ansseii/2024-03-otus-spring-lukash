@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Book</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+
+<div class="container py-5">
+    <h1 class="h1 text-center">Edit</h1>
+    <form th:action="@{/books/{id}(id=${book.bookId})}" th:method="PUT" th:object="${book}">
+        <div class="mb-3">
+            <input type="hidden" class="form-control" id="bookId" name="bookId" aria-label="BookId"
+                   th:value="*{bookId}" th:field="*{bookId}">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="title" name="title" aria-label="Title"
+                   th:value="*{title}" th:field="*{title}" required>
+            <div class="alert alert-warning" role="alert" th:if="${#fields.hasErrors()}" th:errors="*{title}"></div>
+        </div>
+        <div class="mb-3">
+            <select id="author" class="form-select" aria-label="Author" th:field="*{authorId}">
+                <option th:each="author : ${authors}" th:value="${author.id}"
+                        th:text="${author.fullName}" th:selected="${author.id == book.authorId}"></option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <select id="genres" class="form-select" multiple aria-label="Genres" th:field="*{genreIds}">
+                <option th:each="genre : ${genres}" th:value="${genre.id}"
+                        th:text="${genre.name}" th:selected="${book.genreIds.contains(genre)}"></option>
+            </select>
+        </div>
+        <div class="m-0 border-0">
+            <button type="submit" class="btn btn-secondary">Update</button>
+            <a class="btn btn-danger" role="button" href="books-view.html"
+               th:href="@{/books}">Cancel</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
