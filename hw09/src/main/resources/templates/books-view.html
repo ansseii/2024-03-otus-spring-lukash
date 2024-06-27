@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Books</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}" rel="stylesheet">
+</head>
+<body>
+
+<div class="container py-5">
+    <h1 class="h1 text-center">Available books</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genres</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author.fullName}"></td>
+            <td>
+                <ul>
+                    <li th:each="genre : ${book.genres}" th:text="${genre.name}"></li>
+                </ul>
+            </td>
+            <td>
+                <div class="d-flex justify-content-end align-items-center">
+                    <a class="btn btn-secondary btn-sm me-2" role="button" href="edit-book-view.html"
+                       th:href="@{/books/{id}/edit(id=${book.id})}">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    <form th:action="@{'/books/' + ${book.id}}" th:method="DELETE" class="mb-0">
+                        <button type="submit" class="btn btn-secondary btn-sm">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" role="button" href="create-book-view.html" th:href="@{/books/create}">Create</a>
+</div>
+
+</body>
+</html>
