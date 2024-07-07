@@ -9,3 +9,4 @@
 - [Spring Data JPA](https://github.com/ansseii/2024-03-otus-spring-lukash/tree/main/hw07)
 - [Spring Data MongoDB](https://github.com/ansseii/2024-03-otus-spring-lukash/tree/main/hw08)
 - [Spring MVC View](https://github.com/ansseii/2024-03-otus-spring-lukash/tree/main/hw09)
+- [Spring MVC SPA](https://github.com/ansseii/2024-03-otus-spring-lukash/tree/main/hw10)
